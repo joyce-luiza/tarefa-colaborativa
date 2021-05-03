@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", monospace;
+  background-color: #89abd9;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2em;
+  color: #213d61;
+}
+
+label,
+button {
+  display: block;
+}
+
+input {
+  border: 4px solid #3868a6;
+  transition: 0.2s;
+}
+
+label {
+  color: #3868a6;
+  margin: 25px 0 10px 0;
+  font-size: 1.2em;
+  font-weight: 800;
+}
+
+input {
+  width: 100%;
+  padding: 16px 32px;
+  background-color: transparent;
+  box-sizing: border-box;
+  color: #f2f2f2;
+  font-size: 1em;
+  font-weight: 800;
+}
+
+input:hover {
+  box-shadow: -6px 10px 0px 2px #3868a6;
+  outline: none;
+}
+
+input:focus {
+  box-shadow: -6px 10px 0px 2px #3868a6;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  color: #f2f2f2;
+  font-weight: bold;
+  font-size: 1em;
+  background-color: #3868a6;
+  border: none;
+  padding: 16px 0px;
+  margin: 30px 0px;
+  transition: 0.3s;
+}
+
+button:hover {
+  box-shadow: -6px 10px 0px 2px #213d61;
+  cursor: pointer;
+}
+
+.calculator {
+  background-color: #89abd9;
+  width: 30vw;
+  margin: auto;
+  padding: 50px;
+}
+
+.message {
+  color: #213d61;
+}
+
+.divider {
+  display: block;
+  width: 500px;
+  height: 2px;
+  margin: 50px auto 40px auto;
+  background-color: #f2f2f2;
+}
