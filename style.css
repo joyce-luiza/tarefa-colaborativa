@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto Mono", monospace;
-  background-color: #89abd9;
+  background-color: #f2f2f2;
 }
 
 h1 {
@@ -33,7 +33,7 @@ input {
   padding: 16px 32px;
   background-color: transparent;
   box-sizing: border-box;
-  color: #f2f2f2;
+  color: #213d61;
   font-size: 1em;
   font-weight: 800;
 }
@@ -66,7 +66,7 @@ button:hover {
 }
 
 .calculator {
-  background-color: #89abd9;
+  background-color: #f2f2f2;
   width: 30vw;
   margin: auto;
   padding: 50px;
