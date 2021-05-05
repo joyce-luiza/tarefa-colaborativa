@@ -7,8 +7,9 @@ const calculateCircumferencePerimeter = (ray) => {
   return 2 * ray * Math.PI;
 };
 
-const calculateCircumferenceArea = (ray) => {
-  return Math.PI * ray ** 2;
+const calculateCircumferenceArea = (numPosts, ray) => {
+  let totalArea = numPosts * (Math.PI * ray ** 2);
+  return totalArea;
 };
 
 const calculateRectangleArea = (height, base) => {
@@ -20,12 +21,13 @@ const calculateRectanglePerimeter = (height, base) => {
 };
 
 btnCircumference.addEventListener("click", function () {
+  let numPosts = document.getElementById("num-posts").value;
   let ray = document.getElementById("ray").value;
   if (ray) {
-    let area = calculateCircumferenceArea(ray).toFixed(2);
+    let area = calculateCircumferenceArea(numPosts, ray).toFixed(2);
     let perimeter = calculateCircumferencePerimeter(ray).toFixed(2);
 
-    circumferenceMessage.textContent = `A área da circunferência é de: ${area} O perímetro da circunferência é de: ${perimeter}`;
+    circumferenceMessage.textContent = `A área total dos postes é de: ${area} O perímetro da circunferência é de: ${perimeter}`;
   } else {
     circunferenceMessage.textContent = `Digite o valor do raio da circunferência.`;
   }
