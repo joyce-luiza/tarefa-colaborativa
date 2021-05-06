@@ -9,28 +9,50 @@
     <title>Tarefa Colaborativa</title>
   </head>
   <body>
-    <div class="calculator">
+    <form class="calculator">
+      <div class="budget">
+        <h1>Orçamento</h1>
+        <label for="raio">Material</label>
+        <select name="material" id="material">
+          <option value="basalto">Basalto</option>
+          <option value="pedraMineira">Pedra Mineira</option>
+          <option value="pedraPortuguesa">Pedra Portuguesa</option>
+          <option value="miracema">Miracema</option>
+          <option value="concreto">Concreto</option>
+        </select>
+      </div>
+
+      <span class="divider"></span>
+
       <section>
-        <h1>Área dos Postes</h1>
+        <h2>Área dos Postes</h2>
         <label for="num-posts">Número de Postes:</label>
         <input type="number" id="num-posts" />
         <label for="ray">Raio da Circunferência:</label>
         <input type="number" id="ray" />
-        <button class="btn btn-circumference">Calcular Área e Perímetro</button>
-        <h2 class="message circumference-message"></h2>
       </section>
 
       <span class="divider"></span>
 
       <section>
-        <h1>Área da Calçada</h1>
+        <h2>Área da Calçada</h2>
         <label for="base">Base:</label>
         <input type="number" id="base" />
         <label for="height">Altura:</label>
         <input type="number" id="height" />
-        <button class="btn btn-rectangle">Calcular Área e Perímetro</button>
-        <h2 class="message rectangle-message"></h2>
       </section>
+      <input
+        id="submit"
+        type="submit"
+        class="btn calculate"
+        value="Calcular Orçamento"
+      />
+    </form>
+
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>Orçamento</h1>
+      <p class="message"></p>
     </div>
   </body>
   <script src="script.js"></script>
