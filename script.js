@@ -3,8 +3,9 @@ let btnRectangle = document.querySelector(".btn-rectangle");
 let circumferenceMessage = document.querySelector(".circumference-message");
 let rectangleMessage = document.querySelector(".rectangle-message");
 
-const calculateCircumferencePerimeter = (ray) => {
-  return 2 * ray * Math.PI;
+const calculateCircumferencePerimeter = (numPosts, ray) => {
+  let totalPerimeter = numPosts * (2 * ray * Math.PI);
+  return totalPerimeter;
 };
 
 const calculateCircumferenceArea = (numPosts, ray) => {
@@ -17,7 +18,7 @@ const calculateRectangleArea = (height, base) => {
 };
 
 const calculateRectanglePerimeter = (height, base) => {
-  return 2 * (base + height);
+  return 2 * (+base + +height);
 };
 
 btnCircumference.addEventListener("click", function () {
@@ -25,9 +26,9 @@ btnCircumference.addEventListener("click", function () {
   let ray = document.getElementById("ray").value;
   if (ray) {
     let area = calculateCircumferenceArea(numPosts, ray).toFixed(2);
-    let perimeter = calculateCircumferencePerimeter(ray).toFixed(2);
+    let perimeter = calculateCircumferencePerimeter(numPosts, ray).toFixed(2);
 
-    circumferenceMessage.textContent = `A área total dos postes é de: ${area} O perímetro da circunferência é de: ${perimeter}`;
+    circumferenceMessage.textContent = `A área total dos postes é de: ${area} O perímetro total dos postes é de: ${perimeter}`;
   } else {
     circunferenceMessage.textContent = `Digite o valor do raio da circunferência.`;
   }
@@ -36,10 +37,11 @@ btnCircumference.addEventListener("click", function () {
 btnRectangle.addEventListener("click", function () {
   let base = document.getElementById("base").value;
   let height = document.getElementById("height").value;
+
   if (base && height) {
-    let area = calculateCircumferenceArea(base, height).toFixed(2);
-    let perimeter = calculateCircumferencePerimeter(base, height).toFixed(2);
-    rectangleMessage.textContent = `A área da circunferência é de: ${area} O perímetro do retângulo é de: ${perimeter}`;
+    let area = calculateRectangleArea(height, base).toFixed(2);
+    let perimeter = calculateRectanglePerimeter(height, base).toFixed(2);
+    rectangleMessage.textContent = `A área da calçada é de: ${area} O perímetro da calçada é de: ${perimeter}`;
   } else {
     rectangleMessage.textContent = `Insira os valores da base e altura.`;
   }
