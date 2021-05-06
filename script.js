@@ -1,7 +1,28 @@
 let btnCircumference = document.querySelector(".btn-circumference");
 let btnRectangle = document.querySelector(".btn-rectangle");
-let circumferenceMessage = document.querySelector(".circumference-message");
-let rectangleMessage = document.querySelector(".rectangle-message");
+let submitButton = document.getElementById("submit");
+let message = document.querySelector(".message");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnCloseModal = document.querySelector(".close-modal");
+
+const materials = {
+  basalto: {
+    price: 85.0,
+  },
+  pedraMineira: {
+    price: 20.0,
+  },
+  pedraPortuguesa: {
+    price: 40.0,
+  },
+  miracema: {
+    price: 20.0,
+  },
+  concreto: {
+    price: 30.0,
+  },
+};
 
 const calculateCircumferencePerimeter = (numPosts, ray) => {
   let totalPerimeter = numPosts * (2 * ray * Math.PI);
@@ -21,28 +42,35 @@ const calculateRectanglePerimeter = (height, base) => {
   return 2 * (+base + +height);
 };
 
-btnCircumference.addEventListener("click", function () {
+const openModal = function () {
+  modal.classList.remove("hidden");
+};
+
+const closeModal = function () {
+  modal.classList.add("hidden");
+};
+
+submitButton.addEventListener("click", () => {
+  event.preventDefault();
   let numPosts = document.getElementById("num-posts").value;
   let ray = document.getElementById("ray").value;
-  if (ray) {
-    let area = calculateCircumferenceArea(numPosts, ray).toFixed(2);
-    let perimeter = calculateCircumferencePerimeter(numPosts, ray).toFixed(2);
-
-    circumferenceMessage.textContent = `A área total dos postes é de: ${area} O perímetro total dos postes é de: ${perimeter}`;
-  } else {
-    circunferenceMessage.textContent = `Digite o valor do raio da circunferência.`;
-  }
-});
-
-btnRectangle.addEventListener("click", function () {
   let base = document.getElementById("base").value;
   let height = document.getElementById("height").value;
+  let material = document.getElementById("material").value;
 
-  if (base && height) {
-    let area = calculateRectangleArea(height, base).toFixed(2);
-    let perimeter = calculateRectanglePerimeter(height, base).toFixed(2);
-    rectangleMessage.textContent = `A área da calçada é de: ${area} O perímetro da calçada é de: ${perimeter}`;
-  } else {
-    rectangleMessage.textContent = `Insira os valores da base e altura.`;
-  }
+  let circumferenceArea = calculateCircumferenceArea(numPosts, ray).toFixed(2);
+  let circumferencePerimeter = calculateCircumferencePerimeter(
+    numPosts,
+    ray
+  ).toFixed(2);
+  let rectangleArea = calculateRectangleArea(height, base).toFixed(2);
+  let rectanglePerimeter = calculateRectanglePerimeter(height, base).toFixed(2);
+  let orcamento = materials[material].price * rectangleArea;
+
+  message.textContent = `A área total dos postes é: ${circumferenceArea} e o perímetro total é: ${circumferencePerimeter}.
+  A área total da calçada é de: ${rectangleArea} e o perímetro total é de: ${rectanglePerimeter}. O orçamento
+  total é de: R$${orcamento}.`;
+  openModal();
 });
+
+btnCloseModal.addEventListener("click", closeModal);
